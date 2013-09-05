@@ -1,0 +1,43 @@
+@import "settings";
+/* Global SASS-Plugins */
+@import "breakpoint";
+@import "compass";
+@import "zen";
+@import "helper/animations";
+@import "helper/clearfix";
+@import "helper/mobile";
+@import "helper/normalize";
+@import "helper/mixins/keyframes";
+@import "components/message";
+@import "components/tabs";
+
+* {
+  color: #000;
+}
+
+html, body {
+  font-size: 100%;
+  min-height: 100%;
+
+  /* Example MQ with breakpoints */
+  @include respond-to(huge) {
+    background: #c0c0c0;
+  }
+}
+
+/* Zen-Grid-Example*/
+main {
+  @include zen-grid-container;
+  section {
+    @extend .cf;
+    @include zen-clear();
+    div {
+      @include zen-grid-item(5, 1);
+      &.tabs {
+        @include zen-grid-item(5, 6);
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,46 @@
+.tabs {
+}
+
+ul.tabs-navigation {
+  @extend .cf;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    float: left;
+
+    a {
+      padding: 1em;
+      .icon {
+      }
+      .label {
+        text-decoration: none;
+      }
+    }
+
+    &.active {
+      a {
+        .label {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.tabs-content {
+  position: relative;
+  div {
+    visibility: hidden;
+
+    &.active {
+      left: 0;
+      position: absolute;
+      top: 0;
+      visibility: visible;
+    }
+  }
+
+}
+
+

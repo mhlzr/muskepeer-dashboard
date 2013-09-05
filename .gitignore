@@ -1,0 +1,13 @@
+# Ignore those
+.idea
+.sass-cache
+dist/*
+node_modules
+src/js/lib/*
+validation-report.json
+validation-status.json
+
+# But Don't ignore these
+!doc
+!dist
+!test

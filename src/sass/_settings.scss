@@ -1,0 +1,24 @@
+$debug: true;
+
+/* BREAKPOINT SETTINGS */
+//@see https://github.com/Team-Sass/breakpoint/wiki/Respond-To
+$breakpoint-no-query-fallbacks: falls;
+$breakpoint-to-ems: true;
+
+$breakpoints: 'huge' 1000px,
+'high resolution' (min-resolution 1.5dppx),
+'small and portrait' (480px, orientation portait);
+
+
+/* ZEN-GRID SETTINGS */
+//@see http://zengrids.com/
+$zen-column-count: 10; // Set the total number of columns in the grid.
+$zen-gutter-width: 1em;
+$legacy-support-for-ie7 : false;
+$legacy-support-for-ie6 : false;
+
+/* WARNING/ERROR COMPONENTS */
+$warning-color: #f1c40f;
+$warning-text-color: darken($warning-color, 30%);
+$error-color: #e74c3c;
+$error-text-color: #ffffff;

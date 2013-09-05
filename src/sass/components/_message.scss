@@ -1,0 +1,35 @@
+.message {
+  display: none;
+  padding: 0.8em 3%;
+  width: 94%;
+
+  &.error {
+    background: $error-color;
+    color: $error-text-color;
+  }
+
+  &.warning {
+    background: $warning-color;
+    color: $warning-text-color;
+  }
+
+  * {
+    //Link-Colors, Strong etc
+    color: inherit;
+  }
+}
+
+/* GLOBAL MESSAGES */
+body>.message {
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+}
+
+/* SPECIAL CASES WHEN MESSAGES SHOULD BE DISPLAYED */
+noscript.message {
+  display: block;
+  z-index: 2001;
+  // An error is more importan than a warning
+}
