@@ -21,131 +21,248 @@
 </header>
 
 <div class="wrapper">
-    <div id="menu">
+<div id="menu">
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="#overview">
-                        <span class="icon icon-home"></span>
-                        <span class="label" data-i18n="navigation.overview">Overview</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#project">
-                        <span class="icon icon-database"></span>
-                        <span class="label" data-i18n="navigation.project">Project</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#peers">
-                        <span class="icon icon-peers"></span>
-                        <span class="label" data-i18n="navigation.peers">Peers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#nodes">
-                        <span class="icon icon-nodes"></span>
-                        <span class="label" data-i18n="navigation.nodes">Nodes</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#process">
-                        <span class="icon icon-gauge"></span>
-                        <span class="label" data-i18n="navigation.process">Process</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#settings">
-                        <span class="icon icon-settings"></span>
-                        <span class="label" data-i18n="navigation.settings">Settings</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li>
+                <a href="#overview">
+                    <span class="icon icon-home"></span>
+                    <span class="label" data-i18n="navigation.overview">Overview</span>
+                </a>
+            </li>
+            <li>
+                <a href="#project">
+                    <span class="icon icon-database"></span>
+                    <span class="label" data-i18n="navigation.project">Project</span>
+                </a>
+            </li>
+            <li>
+                <a href="#peers">
+                    <span class="icon icon-peers"></span>
+                    <span class="label" data-i18n="navigation.peers">Peers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#nodes">
+                    <span class="icon icon-nodes"></span>
+                    <span class="label" data-i18n="navigation.nodes">Nodes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#process">
+                    <span class="icon icon-gauge"></span>
+                    <span class="label" data-i18n="navigation.process">Process</span>
+                </a>
+            </li>
+            <li>
+                <a href="#settings">
+                    <span class="icon icon-settings"></span>
+                    <span class="label" data-i18n="navigation.settings">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="#profile">
+                    <span class="icon icon-user"></span>
+                    <span class="label" data-i18n="navigation.profile">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-        <footer>
-            <!-- Here be dragons -->
-        </footer>
+    <footer>
+        <!-- Here be dragons -->
+    </footer>
 
-    </div>
+</div>
 
-    <main role="main">
+<main role="main">
 
-        <section id="overview">
-            <div class="row">
-                <div class="panel col-4">
-                    <header>
-                        Header
-                    </header>
-                    <div class="content">
-                        Content <br/>
-                        <button><span class="label">Some Button</span></button>
-                        <button>
-                            <span class="icon icon-plus"></span>
-                            <span class="label">Some Button</span>
-                        </button>
-                    </div>
-                    <footer>
-                        Footer
-                    </footer>
+    <section id="overview">
+        <div class="row">
+            <div class="panel col-4">
+                <header>
+                    Header
+                </header>
+                <div class="content">
+                    Content <br/>
+                    <button><span class="label">Some Button</span></button>
+                    <button>
+                        <span class="icon icon-plus"></span>
+                        <span class="label">Some Button</span>
+                    </button>
+                </div>
+                <footer>
+                    Footer
+                </footer>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel col-3">
+                <div class="content">
+                    <form>
+                        <label for="test">Test-Input</label>
+                        <input id="test" type="text"/>
+
+                        <label for="test2">Test-Input</label>
+                        <input id="test2" type="range"/>
+
+                        <label for="test3">Test-Input</label>
+                        <input id="test3" type="number"/>
+                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel col-3">
-                    <div class="content">
-                        <form>
-                            <label for="test">Test-Input</label>
-                            <input id="test" type="text"/>
+            <div class="panel col-1">1</div>
+        </div>
+        <div class="row">
+            <div class="panel col-2">2</div>
+            <div class="panel col-2">2</div>
+        </div>
+    </section>
 
-                            <label for="test2">Test-Input</label>
-                            <input id="test2" type="range"/>
+    <section id="project">
+        <div class="panel">
+            <header>Current Project</header>
+        </div>
+    </section>
 
-                            <label for="test3">Test-Input</label>
-                            <input id="test3" type="number"/>
-                        </form>
-                    </div>
+    <section id="peers">
+
+        <div class="panel">
+            <div id="peerMap" class="map"></div>
+        </div>
+
+        <div class="row">
+            <div class="panel col-3">
+                <header>
+                    Available Peers
+                </header>
+                <div class="content">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Uuid</th>
+                            <th>Lat</th>
+                            <th>Long</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: list">
+                        <tr>
+                            <td data-bind="text: uuid"></td>
+                            <td data-bind="text: lat"></td>
+                            <td data-bind="text: long"></td>
+                            <td>Not connected</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="panel col-1">1</div>
             </div>
-            <div class="row">
-                <div class="panel col-2">2</div>
-                <div class="panel col-2">2</div>
+
+            <div class="panel col-1">
+
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="project">
-            Project
-        </section>
+    <section id="nodes">
+        <div class="panel">
+            <header>Available Nodes</header>
+            <div class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Uuid</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody data-bind="foreach: list">
+                    <tr>
+                        <td data-bind="text: uuid"></td>
+                        <td>Not connected</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-        <section id="peers">
-            Peers
-        </section>
+    <section id="process">
+        Process
+    </section>
 
-        <section id="nodes">
-            Nodes
-        </section>
+    <section id="settings">
+        <div class="panel">
+        </div>
+    </section>
 
-        <section id="process">
-            Process
-        </section>
+    <section id="profile">
+        <div class="row">
+            <div class="panel col-2">
+                <header>User</header>
+                <div class="content">
+                    <form>
+                        <label for="user-name">Name</label>
+                        <input id="user-name" type="text" placeholder="Your Name"/>
+                        <label for="user-mail">E-Mail</label>
+                        <input id="user-mail" type="text" placeholder="Your E-Mail"/>
+                        <label>Secret-Key</label>
+                        <textarea></textarea>
+                    </form>
+                </div>
+                <footer>
+                    <button data-cmd="save">Save</button>
+                </footer>
+            </div>
+            <div class="panel col-2">
+                <header>Device</header>
 
-        <section id="settings">
-            Settings
-        </section>
+                <div class="content">
+                    <p class="info">Select your kind of device</p>
 
-    </main>
+                    <form>
+                        <input id="device-type-desktop" type="radio" name="device-type"/>
+                        <label for="device-type-desktop">
+                            <span class="icon icon-desktop"></span>
+                            <span class="label">Desktop</span>
+                        </label>
+                        <input id="device-type-laptop" type="radio" name="device-type"/>
+                        <label for="device-type-laptop">
+                            <span class="icon icon-laptop"></span>
+                            <span class="label">Laptop</span>
+                        </label>
+                        <input id="device-type-tablet" type="radio" name="device-type"/>
+                        <label for="device-type-tablet">
+                            <span class="icon icon-tablet"></span>
+                            <span class="label">Tablet</span>
+                        </label>
+                        <input id="device-type-mobile" type="radio" name="device-type"/>
+                        <label for="device-type-mobile">
+                            <span class="icon icon-mobile"></span>
+                            <span class="label">Mobile</span>
+                        </label>
+                    </form>
+
+                    <form>
+                        <label for="device-uuid">Uuid</label>
+                        <input id="device-uuid" type="text" value="234567890ß" disabled/>
+                        <label for="device-auth-code">Auth-Code</label>
+                        <input id="device-auth-code" type="text" value="23er4567890ß" disabled/>
+                    </form>
+                </div>
+
+                <footer>
+                    <button data-cmd="save">Save</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 </div>
 
 
 <noscript class="message error javascript">
     Sie haben <strong>JavaScript</strong> deaktiviert. Um diese Seite nutzen zu können, benötigen Sie es allerdings.
-    Erfahren Sie <a href="http://www.activatejavascript.org/">hier</a> wie Sie es aktivieren können.
-</noscript>
-
-
-<div class="message warning browser">
-    Sie verwenden einen <strong>veralteten Browser</strong>. Bitte <a href="http://browsehappy.com/">wechseln</a> Sie um
-    diese Seite optimal nutzen zu können.
-</div>
+    Erfahren Sie <a href="http://www.activatejavascript.org/">hier</a> wie Sie es aktiviere

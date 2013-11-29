@@ -10,9 +10,11 @@
 @import "components/button";
 @import "components/header";
 @import "components/input";
+@import "components/map";
 @import "components/message";
 @import "components/panel";
 @import "components/section";
+@import "components/table";
 @import "components/tabs";
 @import "components/main";
 @import "components/menu";
@@ -51,7 +53,11 @@ body > .wrapper {
 
 div#menu {
   flex: 1;
-  max-width: 22em;
+  max-width: 20em;
+
+  @include respond-to(small) {
+    max-width: 7em;
+  }
 }
 
 main {

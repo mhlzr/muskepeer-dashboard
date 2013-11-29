@@ -1,20 +1,71 @@
 form {
+  @extend .cf;
+  clear: both;
+
   label {
     color: $text-color-secondary;
     display: inline-block;
     margin: 0.6em 0 0.3em 0;
-    width: 100%;
+
+    .icon {
+      font-size: 2em;
+
+    }
+    .label {
+    }
+
+    .icon, .label {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
   input {
+    &[type=number] {
+      max-width: 5em;
+    }
+
+    &[type=radio],
+    &[type=checkbox] {
+      display: none;
+      width: auto;
+
+      + label {
+        background: lighten($secondary-color-light, 50%);
+        border: $default-border;
+        border-left: 0;
+        cursor: pointer;
+        display: table;
+        float: left;
+        padding: 0.1em 0.7em;
+
+        &:first-of-type {
+          border-bottom-left-radius: 0.3em;
+          border-top-left-radius: 0.3em;
+          border-left: $default-border;
+        }
+        &:last-of-type {
+          border-bottom-right-radius: 0.3em;
+          border-top-right-radius: 0.3em;
+          margin-right: 0;
+        }
+      }
+
+      &:checked + label {
+        background: lighten($secondary-color-light, 42%);
+      }
+    }
+  }
+
+  textarea {
+
+  }
+
+  input, textarea {
     border: $default-border;
     box-sizing: border-box;
     color: $text-color-default;
     padding: 0.3em 0.2em;
     width: 100%;
-
-    &[type=number] {
-      max-width: 5em;
-    }
   }
 }
 

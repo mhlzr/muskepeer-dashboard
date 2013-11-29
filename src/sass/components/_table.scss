@@ -1,0 +1,46 @@
+table {
+  border: $default-border;
+  border-top: 0;
+  width: 100%;
+}
+
+thead {
+  background: $secondary-color-default;
+}
+
+th, td {
+  border-right: $default-border;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0.5em;
+  text-overflow: ellipsis;
+  word-break: break-all;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+th {
+  color: $text-color-inverse;
+  font-weight: 300;
+  text-align: left;
+}
+
+td {
+}
+
+tbody {
+  tr {
+    &:nth-child(odd) {
+      background: #fff;
+    }
+
+    &:nth-child(even) {
+      background: lighten($secondary-color-light, 50%);
+    }
+  }
+}
+
+tfoot {
+}

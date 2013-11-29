@@ -1,10 +1,12 @@
 {
-    "name"         : "muskepeer-dashboard",
-    "version"      : "0.0.1",
-    "dependencies" : {
-        "modernizr"          : null,
-        "requirejs"          : null,
-        "requirejs-domready" : null,
-        "zepto"              : null
-    }
+  "name": "muskepeer-dashboard",
+  "version": "0.0.1",
+  "dependencies": {
+    "modernizr": null,
+    "requirejs": null,
+    "requirejs-domready": null,
+    "zepto": null,
+    "knockout.js": "~3.0.0",
+    "requirejs-plugins": "~1.0.2"
+  }
 }
