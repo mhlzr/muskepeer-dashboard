@@ -1,0 +1,14 @@
+section {
+  display: none;
+  flex-direction: column;
+  padding: 1.2em;
+
+  &:target {
+    display: flex;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+}

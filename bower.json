@@ -1,10 +1,7 @@
 {
-    "name"         : "html5-fundament-grunt",
+    "name"         : "muskepeer-dashboard",
     "version"      : "0.0.1",
     "dependencies" : {
-        "backbone"           : null,
-        "i18next"            : null,
-        "lodash"             : null,
         "modernizr"          : null,
         "requirejs"          : null,
         "requirejs-domready" : null,

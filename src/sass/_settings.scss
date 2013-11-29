@@ -1,21 +1,24 @@
 $debug: true;
 
+$default-background-color: #e4e4e4;
+$default-border: 1px solid #d0d0d0;
+
+$primary-color-default: #e69854;
+$primary-color-light: desaturate($primary-color-default, 20%);
+
+$secondary-color-default: #34373c;
+$secondary-color-light: lighten($secondary-color-default, 20%);
+
+$text-color-default: #000;
+$text-color-secondary: #888888;
+$text-color-tertiary: #d0d0d0;
+
 /* BREAKPOINT SETTINGS */
 //@see https://github.com/Team-Sass/breakpoint/wiki/Respond-To
 $breakpoint-no-query-fallbacks: falls;
 $breakpoint-to-ems: true;
 
-$breakpoints: 'huge' 1000px,
-'high resolution' (min-resolution 1.5dppx),
-'small and portrait' (480px, orientation portait);
-
-
-/* ZEN-GRID SETTINGS */
-//@see http://zengrids.com/
-$zen-column-count: 10; // Set the total number of columns in the grid.
-$zen-gutter-width: 1em;
-$legacy-support-for-ie7 : false;
-$legacy-support-for-ie6 : false;
+$breakpoints: 'huge' 1000px, 'medium' 800px, 'small' (max-width 600px);
 
 /* WARNING/ERROR COMPONENTS */
 $warning-color: #f1c40f;

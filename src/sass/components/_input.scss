@@ -1,0 +1,20 @@
+form {
+  label {
+    color: $text-color-secondary;
+    display: inline-block;
+    margin: 0.6em 0 0.3em 0;
+    width: 100%;
+  }
+  input {
+    border: $default-border;
+    box-sizing: border-box;
+    color: $text-color-default;
+    padding: 0.3em 0.2em;
+    width: 100%;
+
+    &[type=number] {
+      max-width: 5em;
+    }
+  }
+}
+

@@ -3,7 +3,7 @@
 <html lang="de" class="no-js">
 <head>
     <meta charset="utf-8"/>
-    <title>Title</title>
+    <title>Muskepeer Dashboard</title>
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="css/global.css" media="all">
@@ -15,57 +15,128 @@
 
 <body>
 
-<header role="banner">
-    <nav>
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="icon"></span>
-                    <span class="label" data-i18n="navigation.home"></span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"></span>
-                    <span class="label" data-i18n="navigation.about"></span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+<header>
+    <div id="logo"></div>
+    <h1>Muskepeer</h1>
 </header>
 
-<main role="main">
-    <section>
-        <div class="tabs">
-            <ul class="tabs-navigation">
-                <li class="active">
-                    <a href="#tab1">
-                        <span class="icon"></span>
-                        <span class="label">Tab 1</span>
+<div class="wrapper">
+    <div id="menu">
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="#overview">
+                        <span class="icon icon-home"></span>
+                        <span class="label" data-i18n="navigation.overview">Overview</span>
                     </a>
                 </li>
-                <li><a href="#tab2">
-                    <span class="icon"></span>
-                    <span class="label">Tab 2</span>
-                </a>
+                <li>
+                    <a href="#project">
+                        <span class="icon icon-database"></span>
+                        <span class="label" data-i18n="navigation.project">Project</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#peers">
+                        <span class="icon icon-peers"></span>
+                        <span class="label" data-i18n="navigation.peers">Peers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#nodes">
+                        <span class="icon icon-nodes"></span>
+                        <span class="label" data-i18n="navigation.nodes">Nodes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#process">
+                        <span class="icon icon-gauge"></span>
+                        <span class="label" data-i18n="navigation.process">Process</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#settings">
+                        <span class="icon icon-settings"></span>
+                        <span class="label" data-i18n="navigation.settings">Settings</span>
+                    </a>
                 </li>
             </ul>
-            <div class="tabs-content">
-                <div id="tab1" class="active"></div>
-                <div id="tab2">
+        </nav>
+
+        <footer>
+            <!-- Here be dragons -->
+        </footer>
+
+    </div>
+
+    <main role="main">
+
+        <section id="overview">
+            <div class="row">
+                <div class="panel col-4">
+                    <header>
+                        Header
+                    </header>
+                    <div class="content">
+                        Content <br/>
+                        <button><span class="label">Some Button</span></button>
+                        <button>
+                            <span class="icon icon-plus"></span>
+                            <span class="label">Some Button</span>
+                        </button>
+                    </div>
+                    <footer>
+                        Footer
+                    </footer>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="panel col-3">
+                    <div class="content">
+                        <form>
+                            <label for="test">Test-Input</label>
+                            <input id="test" type="text"/>
 
-        <div>Whatever</div>
-    </section>
-</main>
+                            <label for="test2">Test-Input</label>
+                            <input id="test2" type="range"/>
 
-<aside role="complementary">
-</aside>
+                            <label for="test3">Test-Input</label>
+                            <input id="test3" type="number"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel col-1">1</div>
+            </div>
+            <div class="row">
+                <div class="panel col-2">2</div>
+                <div class="panel col-2">2</div>
+            </div>
+        </section>
 
-<footer role="contentinfo">
-</footer>
+        <section id="project">
+            Project
+        </section>
+
+        <section id="peers">
+            Peers
+        </section>
+
+        <section id="nodes">
+            Nodes
+        </section>
+
+        <section id="process">
+            Process
+        </section>
+
+        <section id="settings">
+            Settings
+        </section>
+
+    </main>
+
+</div>
 
 
 <noscript class="message error javascript">
@@ -78,6 +149,3 @@
     Sie verwenden einen <strong>veralteten Browser</strong>. Bitte <a href="http://browsehappy.com/">wechseln</a> Sie um
     diese Seite optimal nutzen zu können.
 </div>
-
-</body>
-</html>

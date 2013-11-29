@@ -1,0 +1,68 @@
+#menu {
+  background: $primary-color-default;
+
+  nav {
+
+    @include respond-to(small) {
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+
+        &.active a,
+        &.active a:hover {
+          background: #fff;
+          color: #000;
+        }
+
+        a {
+          box-sizing: border-box;
+          color: #fff;
+          display: inline-block;
+          font-weight: 600;
+          height: 100%;
+          padding: 1em 2em;
+          text-decoration: none;
+          transition: background 0.2s;
+          width: 100%;
+
+          &:hover {
+            background: $primary-color-light;
+          }
+
+          .icon {
+            border-radius: 1em;
+            color: inherit;
+            font-size: 2em;
+          }
+
+          .label {
+            color: inherit;
+            line-height: 2.7em;
+            margin: 0 0 0 1em;
+            text-transform: uppercase;
+
+            @include respond-to(small) {
+              display: none;
+            }
+
+          }
+
+          .icon, .label {
+            float: left;
+            transition: color 0.2s ease-in;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+  }
+
+}
