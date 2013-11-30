@@ -8,6 +8,7 @@
 @import "helper/normalize";
 @import "helper/mixins/keyframes";
 @import "components/button";
+@import "components/chart";
 @import "components/header";
 @import "components/input";
 @import "components/map";
@@ -29,6 +30,7 @@
 html, body {
   font-size: 100%;
   min-height: 100%;
+  min-height: 100vh;
 }
 
 /* Basic Layout */
@@ -36,16 +38,14 @@ html, body {
 body {
   background: $default-background-color;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
 }
 
 header {
   display: flex;
-  flex: 1;
 }
 
 body > .wrapper {
-  align-items: stretch;
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -62,6 +62,7 @@ div#menu {
 
 main {
   flex: 2;
+  height: 100%;
 }
 
 

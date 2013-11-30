@@ -10,5 +10,11 @@ section {
   .row {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+
+    @include respond-to(medium) {
+      flex-direction: column;
+    }
+
   }
 }

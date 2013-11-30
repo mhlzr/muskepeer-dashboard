@@ -1,13 +1,14 @@
 button {
-  background: $secondary-color-light;
-  border: 0;
-  border-radius: 0.4em;
+  background: lighten($secondary-color-light, 20%);
+  border: 1px solid transparent;
+  border-radius: 0.3em;
   color: #fff;
-  padding: 0.4em 0.7em 0.3em;
-  transition: background 0.1s;
+  padding: 0.3em 0.7em 0.2em;
 
   &:hover {
-    background: $secondary-color-default;
+    background: $secondary-color-light;
+    border: 1px solid $secondary-color-default;
+    border-top: 1px solid transparent;
   }
 
   .icon {

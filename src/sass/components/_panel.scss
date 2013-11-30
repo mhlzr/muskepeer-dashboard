@@ -11,10 +11,12 @@ div.panel {
 
   &.col-1 {
     flex: 1 0 0;
+
   }
 
   &.col-2 {
     flex: 2 0 0;
+
   }
 
   &.col-3 {
@@ -23,6 +25,12 @@ div.panel {
 
   &.col-4 {
     flex: 4 0 0;
+  }
+
+  &.chart{
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   header {

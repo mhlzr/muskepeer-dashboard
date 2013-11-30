@@ -9,12 +9,13 @@ define(['' +
     'viewModel/peers',
     'viewModel/profile',
     'view/menu-nav',
+    'view/peers-chart',
     'view/peers-map',
     'view/peers-table',
     'view/profile-device',
     'view/profile-user'
 ],
-    function ($, ko, PeersViewModel, ProfileViewModel, MenuNavView, PeerMapView, PeerTableView, ProfileDeviceView, ProfileUserView) {
+    function ($, ko, PeersViewModel, ProfileViewModel, MenuNavView, PeerChartView, PeerMapView, PeerTableView, ProfileDeviceView, ProfileUserView) {
 
         return {
 
@@ -23,6 +24,12 @@ define(['' +
              * @param model Instance of MuskepeerClient
              */
             init: function (model) {
+
+                //already a section chosen?
+                if (location.hash == '') {
+                    //then default-view
+                    location.hash = '#overview';
+                }
 
                 //Create ViewModels
                 var peersViewModel = new PeersViewModel(model.network.peers),
@@ -36,8 +43,9 @@ define(['' +
                 //Initialize Views
                 MenuNavView.init($('#menu nav'));
 
-                PeerMapView.init($('#peers .map'), peersViewModel);
-                PeerTableView.init($('#peers table'), peersViewModel);
+                PeerChartView.init($('#peers .panel.chart'), peersViewModel);
+                PeerMapView.init($('#peers .panel.map'), peersViewModel);
+                PeerTableView.init($('#peers .panel.table'), peersViewModel);
 
                 ProfileUserView.init($('#profile .user'), profileViewModel);
                 ProfileDeviceView.init($('#profile .device'), profileViewModel);

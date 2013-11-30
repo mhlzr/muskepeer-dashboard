@@ -4,12 +4,16 @@
 require.config({
     paths: {
         'async': 'lib/requirejs-plugins/src/async',
+        'chartjs': 'lib/chartjs/Chart',
         'domready': 'lib/requirejs-domready/domReady',
         'knockout': 'lib/knockout.js/knockout.debug',
         'modernizr': 'lib/modernizr/modernizr',
         'zepto': 'lib/zepto/zepto'
     },
     shim: {
+        'chartjs': {
+            exports: 'Chart'
+        },
         'zepto': {
             exports: '$'
         }
