@@ -6,6 +6,7 @@ require.config({
         'async': 'lib/requirejs-plugins/src/async',
         'domready': 'lib/requirejs-domready/domReady',
         'knockout': 'lib/knockout.js/knockout.debug',
+        'modernizr': 'lib/modernizr/modernizr',
         'zepto': 'lib/zepto/zepto'
     },
     shim: {
@@ -15,7 +16,7 @@ require.config({
     }
 });
 
-require(['domready', 'zepto', 'muskepeer-dashboard'], function (DomReady, $, MuskepeerDashboard) {
+require(['domready', 'muskepeer-dashboard'], function (DomReady, MuskepeerDashboard) {
 
     //window.Muskepeer = Muskepeer.init();
 
@@ -32,12 +33,6 @@ require(['domready', 'zepto', 'muskepeer-dashboard'], function (DomReady, $, Mus
     };
 
     MuskepeerDashboard.init(Muskepeer);
-
-    //Menu-Listener
-    $('nav>ul>li').on('click', function (e) {
-        $('nav>ul>li').removeClass('active');
-        $(this).addClass('active');
-    })
 
 });
 

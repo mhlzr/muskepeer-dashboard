@@ -5,10 +5,9 @@
 
 define(['knockout'], function (ko) {
 
-    return function Model(peers) {
+    return function ViewModel(peers) {
 
         this.list = ko.observableArray(peers.list);
-
 
     }
 
