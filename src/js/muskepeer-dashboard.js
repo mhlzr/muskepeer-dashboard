@@ -31,6 +31,10 @@ define(['' +
                     location.hash = '#overview';
                 }
 
+                $.ajax({
+                    url: '//server-muskepeer.rhcloud.com/collections/test'
+                });
+
                 //Create ViewModels
                 var peersViewModel = new PeersViewModel(model.network.peers),
                     profileViewModel = new ProfileViewModel(model);
