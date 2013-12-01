@@ -25,15 +25,19 @@ define(['' +
              */
             init: function (model) {
 
-                //already a section chosen?
-                if (location.hash == '') {
-                    //then default-view
-                    location.hash = '#overview';
-                }
 
-                $.ajax({
-                    url: '//server-muskepeer.rhcloud.com/collections/test'
-                });
+                $(window).on('hashchange', this.manageSectionView);
+                $(window).trigger('hashchange');
+
+                /*
+                 $.ajax({
+                 success: function (data, status, xhr) {
+                 console.log(data);
+                 },
+                 type: 'GET',
+                 url: '//server-muskepeer.rhcloud.com/collections/test'
+                 });
+                 */
 
                 //Create ViewModels
                 var peersViewModel = new PeersViewModel(model.network.peers),
@@ -53,6 +57,28 @@ define(['' +
 
                 ProfileUserView.init($('#profile .user'), profileViewModel);
                 ProfileDeviceView.init($('#profile .device'), profileViewModel);
+
+
+            },
+
+            /**
+             * Change to a default section and or
+             * test if selected section is enabled
+             * @param e
+             */
+            manageSectionView: function (e) {
+                var defaultSectionHash = '#overview';
+
+                if (location.hash && location.hash != '') {
+                    var $section = $(location.hash);
+                    if ($section.length > 0 && !$section.hasClass('disabled')) {
+                        return;
+                    }
+                }
+
+                location.hash = defaultSectionHash;
+
+                MenuNavView.selectMenuOptionByHash(defaultSectionHash);
 
             }
         }

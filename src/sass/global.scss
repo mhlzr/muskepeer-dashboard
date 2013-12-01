@@ -9,18 +9,21 @@
 @import "helper/mixins/keyframes";
 @import "components/button";
 @import "components/chart";
+@import "components/dialog";
 @import "components/header";
 @import "components/input";
+@import "components/main";
 @import "components/map";
+@import "components/menu";
 @import "components/message";
 @import "components/panel";
 @import "components/section";
 @import "components/table";
 @import "components/tabs";
-@import "components/main";
-@import "components/menu";
 @import "icons";
-@import url(http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600&subset=latin);
+
+//External
+@import url(//fonts.googleapis.com/css?family=Signika+Negative:300,400,600&subset=latin);
 
 * {
   color: #000;
@@ -49,19 +52,23 @@ body > .wrapper {
   display: flex;
   flex: 1;
   flex-direction: row;
+
+  @include respond-to(small) {
+    flex-direction: column;
+  }
+
 }
 
 div#menu {
-  flex: 1;
   max-width: 20em;
 
   @include respond-to(small) {
-    max-width: 7em;
+    max-width: 100%;
   }
 }
 
 main {
-  flex: 2;
+  flex: 1;
   height: 100%;
 }
 

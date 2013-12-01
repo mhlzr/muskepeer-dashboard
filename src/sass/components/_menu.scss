@@ -4,32 +4,47 @@
   nav {
 
     ul {
+      display: flex;
+      flex-direction: column;
       list-style: none;
       margin: 0;
       padding: 0;
 
       li {
 
-        &.active a,
-        &.active a:hover {
+        color: $text-color-inverse;
+        transition: background 0.2s;
+
+        &:hover {
+          background: $primary-color-light;
+        }
+
+        &.active,
+        &.active:hover {
           background: #fff;
           color: #000;
         }
 
+        &.disabled,
+        &.disabled:hover {
+          background: darken($primary-color-light, 20%);
+          color: $primary-color-default;
+
+          a {
+            cursor: default;
+          }
+        }
+
         a {
           box-sizing: border-box;
-          color: $text-color-inverse;
+          color: inherit;
           display: inline-block;
           font-weight: 600;
           height: 100%;
           padding: 1em 2em;
+          text-align: center;
           text-decoration: none;
-          transition: background 0.2s;
           width: 100%;
-
-          &:hover {
-            background: $primary-color-light;
-          }
 
           .icon {
             border-radius: 1em;
@@ -42,11 +57,6 @@
             line-height: 2.7em;
             margin: 0 0 0 1em;
             text-transform: uppercase;
-
-            @include respond-to(small) {
-              display: none;
-            }
-
           }
 
           .icon, .label {
@@ -56,6 +66,37 @@
         }
       }
     }
+
+    @include respond-to(small) {
+
+      ul {
+        display: table;
+        width: 100%;
+        li {
+          display: table-cell;
+          a {
+            padding: 1em 0;
+            .icon {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+
+    @include respond-to(medium) {
+      ul {
+        li {
+          a {
+            .label {
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+
   }
 
   footer {

@@ -20,7 +20,7 @@ require.config({
     }
 });
 
-require(['domready', 'muskepeer-dashboard'], function (DomReady, MuskepeerDashboard) {
+require(['domready', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Modernizr, MuskepeerDashboard) {
 
     //window.Muskepeer = Muskepeer.init();
 

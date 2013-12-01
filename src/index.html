@@ -49,10 +49,10 @@
                     <span class="label" data-i18n="navigation.nodes">Nodes</span>
                 </a>
             </li>
-            <li>
-                <a href="#process">
+            <li class="disabled">
+                <a href="#computation">
                     <span class="icon icon-gauge"></span>
-                    <span class="label" data-i18n="navigation.process">Process</span>
+                    <span class="label" data-i18n="navigation.computation">Computation</span>
                 </a>
             </li>
             <li>
@@ -79,6 +79,8 @@
 <main role="main">
 
     <section id="overview">
+        <h2>Overview</h2>
+
         <div class="row">
             <div class="panel col-4">
                 <header>
@@ -121,15 +123,18 @@
     </section>
 
     <section id="project">
+        <h2>Project</h2>
+
         <div class="panel">
             <header>Current Project</header>
         </div>
     </section>
 
     <section id="peers">
+        <h2>Peers</h2>
 
         <div class="row">
-            <div class="panel map">
+            <div class="panel map col-4">
                 <div class="map"></div>
             </div>
         </div>
@@ -168,6 +173,8 @@
     </section>
 
     <section id="nodes">
+        <h2>Nodes</h2>
+
         <div class="panel">
             <header>Available Nodes</header>
             <div class="content">
@@ -189,16 +196,24 @@
         </div>
     </section>
 
-    <section id="process">
-        Process
+    <section id="computation" class="disabled">
+        <h2>Computation</h2>
+
+        <div class="panel col2">
+            <header>Jobs</header>
+        </div>
     </section>
 
     <section id="settings">
+        <h2>Settings</h2>
+
         <div class="panel">
         </div>
     </section>
 
     <section id="profile">
+        <h2>Profile</h2>
+
         <div class="row">
             <div class="user panel col-2">
                 <header>User</header>
@@ -264,7 +279,14 @@
 
 </div>
 
+<div class="dialog modal loading">
+    <div class="content">
+        <span class="icon icon-loading"></span>
+    </div>
+</div>
 
 <noscript class="message error javascript">
     Sie haben <strong>JavaScript</strong> deaktiviert. Um diese Seite nutzen zu können, benötigen Sie es allerdings.
-    Erfahren Sie <a href="http://www.activatejavascript.org/">hier</a> wie Sie es aktiviere
+    Erfahren Sie <a href="http://www.activatejavascript.org/">hier</a> wie Sie es aktivieren.
+</noscript>
+     

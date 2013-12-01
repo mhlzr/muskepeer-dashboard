@@ -7,14 +7,31 @@ section {
     display: flex;
   }
 
+  &.disabled,
+  &.disbaled:target {
+    display: none;
+  }
+
+  h2 {
+    color: lighten($secondary-color-light, 20%);
+    font-size: 1.1em;
+    font-weight: 200;
+    margin: 0 1em;
+  }
+
   .row {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-
-    @include respond-to(medium) {
-      flex-direction: column;
-    }
-
   }
+
+  @include respond-to(medium) {
+    padding: 1em 0;
+
+    .row {
+      flex-direction: column;
+
+    }
+  }
+
 }
