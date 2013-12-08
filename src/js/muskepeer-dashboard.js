@@ -3,82 +3,114 @@
  * @date 29.11.13
  */
 
-define(['' +
+define([
     'zepto',
-    'knockout',
+    'router',
+    'model/server',
+    'viewModel/overview',
     'viewModel/peers',
+    'viewModel/project',
     'viewModel/profile',
     'view/menu-nav',
+    'view/overview-projects-table',
+    'view/project-qrcode',
     'view/peers-chart',
     'view/peers-map',
     'view/peers-table',
     'view/profile-device',
     'view/profile-user'
 ],
-    function ($, ko, PeersViewModel, ProfileViewModel, MenuNavView, PeerChartView, PeerMapView, PeerTableView, ProfileDeviceView, ProfileUserView) {
+    function ($, router, Server, OverviewViewModel, PeersViewModel, ProjectViewModel, ProfileViewModel, MenuNavView, OverviewProjectTableView, ProjectQRCodeView, PeerChartView, PeerMapView, PeerTableView, ProfileDeviceView, ProfileUserView) {
+
+        var _self;
+
 
         return {
 
             /**
              *
-             * @param model Instance of MuskepeerClient
+             * @param client Instance of MuskepeerClient
              */
-            init: function (model) {
+            init: function (client) {
+
+                _self = this;
+
+                this.server = new Server('//server-muskepeer.rhcloud.com');
+                this.client = client;
+
+                //TODO online?, project defined?, localstorage?
+
+                this.initializeViews();
+                this.initializeRouting();
+
+                return this;
+
+            },
 
 
-                $(window).on('hashchange', this.manageSectionView);
-                $(window).trigger('hashchange');
+            /**
+             * Add EventListeners to Router
+             */
+            initializeRouting: function () {
 
-                /*
-                 $.ajax({
-                 success: function (data, status, xhr) {
-                 console.log(data);
-                 },
-                 type: 'GET',
-                 url: '//server-muskepeer.rhcloud.com/collections/test'
-                 });
-                 */
+                router.on('section:change', function (sectionName) {
+                    _self.showSectionViewByName(sectionName);
+                });
+
+                router.on('project:change', function (projectUuid) {
+                    //TODO change everything, inform user and reload?
+
+                });
+
+                //initial state
+                router.setInitialDashboardState();
+            },
+
+
+            /**
+             * Create views and register window listeners
+             */
+            initializeViews: function () {
 
                 //Create ViewModels
-                var peersViewModel = new PeersViewModel(model.network.peers),
-                    profileViewModel = new ProfileViewModel(model);
-
-
-                //Knockout bindings
-                ko.applyBindings(peersViewModel, $('#peers')[0]);
-                ko.applyBindings(profileViewModel, $('#profile')[0]);
+                var overviewViewModel = new OverviewViewModel(this.server),
+                    peersViewModel = new PeersViewModel(this.client.network.peers),
+                    projectViewModel = new ProjectViewModel(this.client.project);
 
                 //Initialize Views
                 MenuNavView.init($('#menu nav'));
 
-                PeerChartView.init($('#peers .panel.chart'), peersViewModel);
+                //Overview
+
+                OverviewProjectTableView.init($('#overview .panel.table'), overviewViewModel);
+
+                //Project
+                ProjectQRCodeView.init($('#project .panel.qrcode'), projectViewModel);
+
+                //PeerChartView.init($('#peers .panel.chart'), peersViewModel);
                 PeerMapView.init($('#peers .panel.map'), peersViewModel);
                 PeerTableView.init($('#peers .panel.table'), peersViewModel);
 
-                ProfileUserView.init($('#profile .user'), profileViewModel);
-                ProfileDeviceView.init($('#profile .device'), profileViewModel);
-
+                //ProfileUserView.init($('#profile .user'), profileViewModel);
+                // ProfileDeviceView.init($('#profile .device'), profileViewModel);
 
             },
+
 
             /**
              * Change to a default section and or
              * test if selected section is enabled
-             * @param e
+             * @param name name of section to activate
              */
-            manageSectionView: function (e) {
-                var defaultSectionHash = '#overview';
+            showSectionViewByName: function (name) {
+                var $sections = $('section'),
+                    $sectionWanted = $sections.filter('#' + name);
 
-                if (location.hash && location.hash != '') {
-                    var $section = $(location.hash);
-                    if ($section.length > 0 && !$section.hasClass('disabled')) {
-                        return;
-                    }
+                if ($sectionWanted.length > 0 && !$sectionWanted.hasClass('disabled')) {
+                    $sections.removeClass('active');
+                    $sectionWanted.addClass('active');
+                    MenuNavView.selectMenuOptionByHash('#' + name);
                 }
-
-                location.hash = defaultSectionHash;
-
-                MenuNavView.selectMenuOptionByHash(defaultSectionHash);
 
             }
         }

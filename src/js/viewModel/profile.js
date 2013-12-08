@@ -3,7 +3,7 @@
  * @date 30.11.13
  */
 
-define(['knockout'], function (ko) {
+define([], function () {
     return function ViewModel() {
 
     };

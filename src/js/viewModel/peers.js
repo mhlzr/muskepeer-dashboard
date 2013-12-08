@@ -3,13 +3,13 @@
  * @date 29.11.13
  */
 
-define(['knockout'], function (ko) {
+define([], function () {
 
     return function ViewModel(peers) {
 
-        this.list = ko.observableArray(peers.list);
+        this.list = peers.list;
+        this.amount = this.list.length;
 
     }
+});
 
-})
-;

@@ -3,7 +3,7 @@
  * @date 30.11.13
  */
 
-define([], function () {
+define(['../router'], function (router) {
     var _self;
 
     function removeActiveStateFromOptions() {
@@ -19,17 +19,15 @@ define([], function () {
             this.$el = $el;
 
             //Menu-Listener
-            this.$el.find('ul>li').on('click', function (e) {
+            this.$el.find('ul>li>a').on('click', function (e) {
 
-                if ($(this).hasClass('disabled')) {
-                    e.preventDefault();
+                e.preventDefault();
+
+                if ($(this).parent().hasClass('disabled')) {
                     return;
                 }
-                //remove state from all
-                removeActiveStateFromOptions();
 
-                //set state to current
-                $(this).addClass('active');
+                router.setDashboardState(null, $(this).attr('href').replace('#', ''));
             })
         },
 

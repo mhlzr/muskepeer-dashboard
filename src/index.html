@@ -6,8 +6,8 @@
     <title>Muskepeer Dashboard</title>
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="css/global.css" media="all">
-    <link rel="shortcut icon" href="favicon.png" type="image/png"/>
+    <link rel="stylesheet" href="css/common.css" media="all">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png"/>
 
     <script data-main="js/main" src="js/lib/requirejs/require.js" async></script>
 
@@ -76,212 +76,313 @@
 
 </div>
 
-<main role="main">
+<main>
 
-    <section id="overview">
-        <h2>Overview</h2>
+<section id="overview">
+    <h2>Overview</h2>
 
-        <div class="row">
-            <div class="panel col-4">
-                <header>
-                    Header
-                </header>
-                <div class="content">
-                    Content <br/>
-                    <button><span class="label">Some Button</span></button>
-                    <button>
-                        <span class="icon icon-plus"></span>
-                        <span class="label">Some Button</span>
-                    </button>
-                </div>
-                <footer>
-                    Footer
-                </footer>
+    <div class="row">
+
+        <div class="panel table col-4">
+            <header>Available Projects</header>
+            <div class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th class="action"></th>
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+                    {{#projects}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td></td>
+                        <td>Active</td>
+                        <td class="action">Join, Delete, Edit</td>
+                    </tr>
+                    {{/projects}}
+
+                    </tbody>
+                </table>
+
             </div>
         </div>
-        <div class="row">
-            <div class="panel col-3">
-                <div class="content">
-                    <form>
-                        <label for="test">Test-Input</label>
-                        <input id="test" type="text"/>
+    </div>
 
-                        <label for="test2">Test-Input</label>
-                        <input id="test2" type="range"/>
-
-                        <label for="test3">Test-Input</label>
-                        <input id="test3" type="number"/>
-                    </form>
-                </div>
+    <div class="row">
+        <div class="panel table col-4">
+            <header>
+                Header
+            </header>
+            <div class="content">
+                Content <br/>
+                <button><span class="label">Some Button</span></button>
+                <button>
+                    <span class="icon icon-plus"></span>
+                    <span class="label">Some Button</span>
+                </button>
             </div>
-            <div class="panel col-1">1</div>
+            <footer>
+                Footer
+            </footer>
         </div>
-        <div class="row">
-            <div class="panel col-2">2</div>
-            <div class="panel col-2">2</div>
+    </div>
+    <div class="row">
+        <div class="panel col-3">
+            <div class="content">
+                <form>
+                    <label for="test">Test-Input</label>
+                    <input id="test" type="text"/>
+
+                    <label for="test2">Test-Input</label>
+                    <input id="test2" type="range"/>
+
+                    <label for="test3">Test-Input</label>
+                    <input id="test3" type="number"/>
+                </form>
+            </div>
         </div>
-    </section>
+        <div class="panel col-1">1</div>
+    </div>
+    <div class="row">
+        <div class="panel col-2">2</div>
+        <div class="panel col-2">2</div>
+    </div>
+</section>
 
-    <section id="project">
-        <h2>Project</h2>
+<section id="project">
+    <h2>Project</h2>
 
-        <div class="panel">
+    <div class="row">
+        <div class="panel col-3">
             <header>Current Project</header>
         </div>
-    </section>
 
-    <section id="peers">
-        <h2>Peers</h2>
-
-        <div class="row">
-            <div class="panel map col-4">
-                <div class="map"></div>
-            </div>
+        <div class="panel qrcode col-1">
+            <header>Sharing</header>
+            <canvas width="400" height="400"></canvas>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="panel table col-3">
-                <header>
-                    Available Peers
-                </header>
-                <div class="content">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Uuid</th>
-                            <th>Lat</th>
-                            <th>Long</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody data-bind="foreach: list">
-                        <tr>
-                            <td data-bind="text: uuid"></td>
-                            <td data-bind="text: lat"></td>
-                            <td data-bind="text: long"></td>
-                            <td>Not connected</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="panel wizard">
+        <header>Create New Project</header>
 
-            <div class="panel chart col-1">
-                <canvas height="400" width="400"/>
-            </div>
+
+        <div class="content">
+
+            <form class="col-3">
+                <fieldset>
+                    <legend>General</legend>
+
+                    <div class="field">
+                        <label for="project-title">Title</label>
+                        <input id="project-title" name="uuid" type="text" required/>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Computation</legend>
+                    <div class="field"><label>Has depending tasks<input type="checkbox"/></label></div>
+                    <div class="field"><label>Has finite tasks<input type="checkbox"/></label></div>
+                    <div class="field"><label>Has data files<input type="checkbox"/></label></div>
+                    <div class="field"><label>Validation iterations</label><input type="number"/></div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Network</legend>
+                </fieldset>
+            </form>
+
+            <aside class="col-1"></aside>
         </div>
-    </section>
+    </div>
 
-    <section id="nodes">
-        <h2>Nodes</h2>
+</section>
 
-        <div class="panel">
-            <header>Available Nodes</header>
+<section id="peers">
+    <h2>Peers</h2>
+
+    <div class="row">
+        <div class="panel map col-4">
+            <div class="map"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel table col-3">
+            <header>
+                Available Peers
+            </header>
             <div class="content">
                 <table>
                     <thead>
                     <tr>
                         <th>Uuid</th>
+                        <th>Lat</th>
+                        <th>Long</th>
                         <th>Status</th>
                     </tr>
                     </thead>
-                    <tbody data-bind="foreach: list">
+                    <tbody>
+
+                    {{#list}}
                     <tr>
-                        <td data-bind="text: uuid"></td>
-                        <td>Not connected</td>
+                        <td>{{uuid}}</td>
+                        <td>{{lat}}</td>
+                        <td>{{long}}</td>
+                        <td>Connected</td>
                     </tr>
+                    {{/list}}
+
+
                     </tbody>
                 </table>
+
+
+                {{#list}}
+                <p>
+                    <span>{{uuid}}</span><em>{{ lat }}</em> <b>{{long}}</b>
+                    <br>
+                </p>
+                {{/list}}
+
+                <p>
+                    {{amount}}
+                </p>
+
+
             </div>
+
         </div>
-    </section>
 
-    <section id="computation" class="disabled">
-        <h2>Computation</h2>
 
-        <div class="panel col2">
-            <header>Jobs</header>
+        <div class="panel chart col-1">
+            <canvas height="400" width="400"></canvas>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="settings">
-        <h2>Settings</h2>
+<section id="nodes">
+    <h2>Nodes</h2>
 
-        <div class="panel">
+    <div class="panel">
+        <header>Available Nodes</header>
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>Uuid</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: list">
+                <tr>
+                    <td data-bind="text: uuid"></td>
+                    <td>Not connected</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="profile">
-        <h2>Profile</h2>
+<section id="computation" class="disabled">
+    <h2>Computation</h2>
 
-        <div class="row">
-            <div class="user panel col-2">
-                <header>User</header>
-                <div class="content">
-                    <form>
-                        <label for="user-name">Name</label>
-                        <input id="user-name" type="text" placeholder="Your Name"/>
-                        <label for="user-mail">E-Mail</label>
-                        <input id="user-mail" type="text" placeholder="Your E-Mail"/>
-                        <label>Secret-Key</label>
-                        <textarea></textarea>
-                    </form>
-                </div>
-                <footer>
-                    <button data-cmd="save">Save</button>
-                </footer>
+    <div class="panel col2">
+        <header>Jobs</header>
+    </div>
+</section>
+
+<section id="settings">
+    <h2>Settings</h2>
+
+    <div class="panel">
+    </div>
+</section>
+
+<section id="profile">
+    <h2>Profile</h2>
+
+    <div class="row">
+        <div class="user panel col-2">
+            <header>User</header>
+            <div class="content">
+                <form>
+                    <label for="user-name">Name</label>
+                    <input id="user-name" type="text" placeholder="Your Name"/>
+                    <label for="user-mail">E-Mail</label>
+                    <input id="user-mail" type="text" placeholder="Your E-Mail"/>
+                    <label for="user-key">Secret-Key</label>
+                    <textarea id="user-key"></textarea>
+                </form>
             </div>
-            <div class="device panel col-2">
-                <header>Device</header>
-
-                <div class="content">
-                    <p class="info">Select your kind of device</p>
-
-                    <form>
-                        <input id="device-type-desktop" type="radio" name="device-type"/>
-                        <label for="device-type-desktop">
-                            <span class="icon icon-desktop"></span>
-                            <span class="label">Desktop</span>
-                        </label>
-                        <input id="device-type-laptop" type="radio" name="device-type"/>
-                        <label for="device-type-laptop">
-                            <span class="icon icon-laptop"></span>
-                            <span class="label">Laptop</span>
-                        </label>
-                        <input id="device-type-tablet" type="radio" name="device-type"/>
-                        <label for="device-type-tablet">
-                            <span class="icon icon-tablet"></span>
-                            <span class="label">Tablet</span>
-                        </label>
-                        <input id="device-type-mobile" type="radio" name="device-type"/>
-                        <label for="device-type-mobile">
-                            <span class="icon icon-mobile"></span>
-                            <span class="label">Mobile</span>
-                        </label>
-                    </form>
-
-                    <form>
-                        <label for="device-uuid">Uuid</label>
-                        <input id="device-uuid" type="text" value="234567890ß" disabled/>
-                        <label for="device-auth-code">Auth-Code</label>
-                        <input id="device-auth-code" type="text" value="23er4567890ß" disabled/>
-                    </form>
-                </div>
-
-                <footer>
-                    <button data-cmd="save">Save</button>
-                </footer>
-            </div>
+            <footer>
+                <button data-cmd="save">Save</button>
+            </footer>
         </div>
-    </section>
+        <div class="device panel col-2">
+            <header>Device</header>
+
+            <div class="content">
+                <p class="info">Select your kind of device</p>
+
+                <form>
+                    <input id="device-type-desktop" type="radio" name="device-type"/>
+                    <label for="device-type-desktop">
+                        <span class="icon icon-desktop"></span>
+                        <span class="label">Desktop</span>
+                    </label>
+                    <input id="device-type-laptop" type="radio" name="device-type"/>
+                    <label for="device-type-laptop">
+                        <span class="icon icon-laptop"></span>
+                        <span class="label">Laptop</span>
+                    </label>
+                    <input id="device-type-tablet" type="radio" name="device-type"/>
+                    <label for="device-type-tablet">
+                        <span class="icon icon-tablet"></span>
+                        <span class="label">Tablet</span>
+                    </label>
+                    <input id="device-type-mobile" type="radio" name="device-type"/>
+                    <label for="device-type-mobile">
+                        <span class="icon icon-mobile"></span>
+                        <span class="label">Mobile</span>
+                    </label>
+                </form>
+
+                <form>
+                    <label for="device-uuid">Uuid</label>
+                    <input id="device-uuid" type="text" value="234567890ß" disabled/>
+                    <label for="device-auth-code">Auth-Code</label>
+                    <input id="device-auth-code" type="text" value="23er4567890ß" disabled/>
+                </form>
+            </div>
+
+            <footer>
+                <button data-cmd="save">Save</button>
+            </footer>
+        </div>
+    </div>
+</section>
 
 </main>
 
 </div>
 
+<footer>
+    Footer
+</footer>
+
 <div class="dialog modal loading">
     <div class="content">
-        <span class="icon icon-loading"></span>
+        <span class="icon icon-load"></span>
+        <span class="label">Loading</span>
     </div>
 </div>
 
@@ -289,4 +390,7 @@
     Sie haben <strong>JavaScript</strong> deaktiviert. Um diese Seite nutzen zu können, benötigen Sie es allerdings.
     Erfahren Sie <a href="http://www.activatejavascript.org/">hier</a> wie Sie es aktivieren.
 </noscript>
-     
+
+</body>
+
+</html>

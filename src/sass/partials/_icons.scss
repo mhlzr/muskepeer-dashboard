@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?3187080');
-  src: url('../font/icons.eot?3187080#iefix') format('embedded-opentype'),
-       url('../font/icons.woff?3187080') format('woff'),
-       url('../font/icons.ttf?3187080') format('truetype'),
-       url('../font/icons.svg?3187080#icons') format('svg');
+  src: url('../../font/icons.eot?3187080');
+  src: url('../../font/icons.eot?3187080#iefix') format('embedded-opentype'),
+       url('../../font/icons.woff?3187080') format('woff'),
+       url('../../font/icons.ttf?3187080') format('truetype'),
+       url('../../font/icons.svg?3187080#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -50,7 +50,10 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-load:before { content: '\e804'; } /* '' */
+.icon-load:before {
+  animation: spin 2s infinite linear;
+  content: '\e804';
+} /* '' */
 .icon-terminal:before { content: '\e80e'; } /* '' */
 .icon-user:before { content: '\e815'; } /* '' */
 .icon-ok:before { content: '\e816'; } /* '' */

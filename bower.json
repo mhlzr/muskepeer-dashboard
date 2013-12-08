@@ -6,8 +6,12 @@
     "requirejs": null,
     "requirejs-domready": null,
     "zepto": null,
-    "knockout.js": "~3.0.0",
     "requirejs-plugins": "~1.0.2",
-    "chartjs": "*"
+    "chartjs": "*",
+    "observe-js": "~0.1.0",
+    "qr-js": "~1.1.1",
+    "eventemitter2": "~0.4.13",
+    "ractive": "~0.3.7",
+    "q": "~0.9.7"
   }
 }

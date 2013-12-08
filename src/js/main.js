@@ -6,8 +6,12 @@ require.config({
         'async': 'lib/requirejs-plugins/src/async',
         'chartjs': 'lib/chartjs/Chart',
         'domready': 'lib/requirejs-domready/domReady',
-        'knockout': 'lib/knockout.js/knockout.debug',
+        'eventemitter2': 'lib/eventemitter2/lib/eventemitter2',
         'modernizr': 'lib/modernizr/modernizr',
+        'observe-js': 'lib/observe-js/src/observe',
+        'ractive': 'lib/ractive/build/Ractive',
+        'q': 'lib/q/q',
+        'qr-js': 'lib/qr-js/qr',
         'zepto': 'lib/zepto/zepto'
     },
     shim: {
@@ -24,7 +28,12 @@ require(['domready', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Mo
 
     //window.Muskepeer = Muskepeer.init();
 
+    window.jquery = $;
+
     window.Muskepeer = {
+        project: {
+            uuid: '234rw3tgbvmzrtrzef567890'
+        },
         network: {
             peers: {
                 list: [
@@ -36,7 +45,7 @@ require(['domready', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Mo
         }
     };
 
-    MuskepeerDashboard.init(Muskepeer);
+    window.Dashboard = MuskepeerDashboard.init(Muskepeer);
 
 });
 

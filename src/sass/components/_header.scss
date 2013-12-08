@@ -1,8 +1,14 @@
-body>header {
+body > header {
   background: $secondary-color-default;
   padding: 0.5em 2em;
 
   #logo {
+    background: url('../img/logo.svg') no-repeat center center;
+    background-size: cover;
+    display:block;
+    height: 2em;
+    margin: 0.5em 0.5em 0 0;
+    width: 2em;
   }
 
   h1 {

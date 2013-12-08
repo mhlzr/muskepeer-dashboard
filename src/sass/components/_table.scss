@@ -19,6 +19,10 @@ th, td {
   &:last-child {
     border-right: none;
   }
+
+  &.action {
+    color: red;
+  }
 }
 
 th {

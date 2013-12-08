@@ -3,7 +3,7 @@
  * @date 30.11.13
  */
 
-define(['async!http://maps.google.com/maps/api/js?key=&v=3&sensor=false'], function () {
+define(['observe-js', 'async!http://maps.google.com/maps/api/js?key=&v=3&sensor=false'], function () {
     return {
         init: function ($el, viewModel) {
 
@@ -50,14 +50,15 @@ define(['async!http://maps.google.com/maps/api/js?key=&v=3&sensor=false'], funct
 
             //Draw a line
             var flightPath = new google.maps.Polyline({
-                draggable : false,
+                draggable: false,
                 path: [pos1, pos2, pos3],
                 geodesic: true,
-                map : map,
+                map: map,
                 strokeColor: '#FF0000',
                 strokeOpacity: 1.0,
                 strokeWeight: 2
             });
+
 
         }
     };
