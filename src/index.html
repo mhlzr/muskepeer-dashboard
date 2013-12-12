@@ -17,7 +17,7 @@
 
 <header>
     <div id="logo"></div>
-    <h1>Muskepeer</h1>
+    <h1>Muskepeer: Dashboard</h1>
 </header>
 
 <div class="wrapper">
@@ -32,9 +32,9 @@
                 </a>
             </li>
             <li>
-                <a href="#project">
+                <a href="#wizard">
                     <span class="icon icon-database"></span>
-                    <span class="label" data-i18n="navigation.project">Project</span>
+                    <span class="label" data-i18n="navigation.wizard">Wizard</span>
                 </a>
             </li>
             <li>
@@ -81,6 +81,32 @@
 <section id="overview">
     <h2>Overview</h2>
 
+
+    <div class="row">
+
+        <div class="panel info col-3 disabled">
+            <header>
+                Current Project
+            </header>
+            <div class="content">
+                Details
+                <button><span class="label">Some Button</span></button>
+                <button>
+                    <span class="icon icon-plus"></span>
+                    <span class="label">Some Button</span>
+                </button>
+            </div>
+            <footer>
+                Footer
+            </footer>
+        </div>
+
+        <div class="panel qrcode col-1">
+            <header>Sharing</header>
+            <canvas width="400" height="400"></canvas>
+        </div>
+    </div>
+
     <div class="row">
 
         <div class="panel table col-4">
@@ -113,93 +139,45 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="panel table col-4">
-            <header>
-                Header
-            </header>
-            <div class="content">
-                Content <br/>
-                <button><span class="label">Some Button</span></button>
-                <button>
-                    <span class="icon icon-plus"></span>
-                    <span class="label">Some Button</span>
-                </button>
-            </div>
-            <footer>
-                Footer
-            </footer>
-        </div>
-    </div>
-    <div class="row">
-        <div class="panel col-3">
-            <div class="content">
-                <form>
-                    <label for="test">Test-Input</label>
-                    <input id="test" type="text"/>
-
-                    <label for="test2">Test-Input</label>
-                    <input id="test2" type="range"/>
-
-                    <label for="test3">Test-Input</label>
-                    <input id="test3" type="number"/>
-                </form>
-            </div>
-        </div>
-        <div class="panel col-1">1</div>
-    </div>
-    <div class="row">
-        <div class="panel col-2">2</div>
-        <div class="panel col-2">2</div>
-    </div>
 </section>
 
-<section id="project">
-    <h2>Project</h2>
+<section id="wizard">
+    <h2>Project Wizard</h2>
 
     <div class="row">
-        <div class="panel col-3">
-            <header>Current Project</header>
-        </div>
 
-        <div class="panel qrcode col-1">
-            <header>Sharing</header>
-            <canvas width="400" height="400"></canvas>
-        </div>
-    </div>
-
-    <div class="panel wizard">
-        <header>Create New Project</header>
+        <div class="panel wizard col-3">
+            <header>Create New Project</header>
 
 
-        <div class="content">
+            <div class="content">
 
-            <form class="col-3">
-                <fieldset>
-                    <legend>General</legend>
+                <form class="col-3">
+                    <fieldset>
+                        <legend>General</legend>
 
-                    <div class="field">
-                        <label for="project-title">Title</label>
-                        <input id="project-title" name="uuid" type="text" required/>
-                    </div>
+                        <div class="field">
+                            <label for="project-title">Title</label>
+                            <input id="project-title" name="uuid" type="text" required/>
+                        </div>
 
-                </fieldset>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Computation</legend>
-                    <div class="field"><label>Has depending tasks<input type="checkbox"/></label></div>
-                    <div class="field"><label>Has finite tasks<input type="checkbox"/></label></div>
-                    <div class="field"><label>Has data files<input type="checkbox"/></label></div>
-                    <div class="field"><label>Validation iterations</label><input type="number"/></div>
-                </fieldset>
+                    <fieldset>
+                        <legend>Computation</legend>
+                        <div class="field"><label>Has depending tasks<input type="checkbox"/></label></div>
+                        <div class="field"><label>Has finite tasks<input type="checkbox"/></label></div>
+                        <div class="field"><label>Has data files<input type="checkbox"/></label></div>
+                        <div class="field"><label>Validation iterations</label><input type="number"/></div>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Network</legend>
-                </fieldset>
-            </form>
+                    <fieldset>
+                        <legend>Network</legend>
+                    </fieldset>
+                </form>
 
-            <aside class="col-1"></aside>
+                <aside class="col-1"></aside>
+            </div>
         </div>
     </div>
 

@@ -171,16 +171,41 @@ module.exports = function (grunt) {
                 }
             },
 
+            manifest: {
+                generate: {
+                    options: {
+                        basePath: './dist',
+                        cache: [],
+                        network: ['http://*', 'https://*'],
+                        fallback: [],
+                        exclude: [],
+                        preferOnline: true,
+                        verbose: true,
+                        timestamp: true,
+                        hash: true,
+                        master: ['index.html']
+                    },
+                    src: [
+                        'css/**',
+                        'font/**',
+                        'img/**',
+                        'js/**'
+                    ],
+                    dest: './dist/manifest.appcache'
+                }
+            },
+
+
             modernizr: {
                 // [REQUIRED] Path to the build you're using for development.
                 "devFile": "./src/js/lib/modernizr/modernizr.js",
                 // [REQUIRED] Path to save out the built file.
-                "outputFile": "./src/js/lib/modernizr/modernizr.js",
+                "outputFile": "./dist/js/lib/modernizr/modernizr.js",
                 // Based on default settings on http://modernizr.com/download/
                 "extra": {
                     "shiv": true,
                     "printshiv": false,
-                    "load": true,
+                    "load": false,
                     "mq": true,
                     "cssclasses": true
                 },
@@ -299,6 +324,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-html-validation');
+    grunt.loadNpmTasks('grunt-manifest');
     grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-svgmin');
@@ -310,7 +336,7 @@ module.exports = function (grunt) {
     grunt.registerTask('server', ['connect']);
 
 // Release Task
-    grunt.registerTask('deploy', ['clean:beforeProduction', 'modernizr', 'compass:production', 'validation', 'yuidoc', 'requirejs', 'imagemin', 'clean:afterProduction', 'uglify', 'autoprefixer', 'cssmin', 'string-replace:production']);
+    grunt.registerTask('deploy', ['clean:beforeProduction', 'modernizr', 'compass:production', 'validation', 'requirejs', 'imagemin', 'clean:afterProduction', 'uglify', 'autoprefixer', 'cssmin', 'string-replace:production', 'manifest']);
 
 
 };

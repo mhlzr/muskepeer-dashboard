@@ -9,6 +9,10 @@ div.panel {
   padding: 1em;
   margin: 1em;
 
+  &.disabled{
+    opacity: 0.4;
+  }
+
   &.col-1 {
     flex: 1 0 0;
 
