@@ -79,6 +79,18 @@ module.exports = function (grunt) {
                 }
             },
 
+            fontello: {
+                dist: {
+                    options: {
+                        config  : 'fontello.json',
+                        fonts   : 'src/font',
+                        styles  : 'src/sass/plugins/fontello',
+                        sass    : true,
+                        force   : true
+                    }
+                }
+            },
+
 
             htmlmin: {
                 dist: {
@@ -323,6 +335,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-fontello');
     grunt.loadNpmTasks('grunt-html-validation');
     grunt.loadNpmTasks('grunt-manifest');
     grunt.loadNpmTasks("grunt-modernizr");

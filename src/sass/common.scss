@@ -4,9 +4,13 @@
 @import "compass";
 /* Plugins */
 @import "plugins/normalize";
+
+
+@import "plugins/fontello/animation";
+@import "plugins/fontello/icons-embedded";
+
 @import "partials/animations";
 @import "partials/clearfix";
-@import "partials/icons";
 @import "partials/mobile";
 @import "mixins/keyframes";
 @import "global";
@@ -30,4 +34,6 @@
 
 
 
-
+.icon-load:before {
+  animation: spin 2s infinite linear;
+}

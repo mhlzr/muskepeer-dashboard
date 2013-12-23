@@ -32,6 +32,7 @@
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-modernizr": "~0.3.0",
     "grunt-html-validation": "~0.1.6",
-    "grunt-manifest": "~0.4.0"
+    "grunt-manifest": "~0.4.0",
+    "grunt-fontello": "~0.1.2"
   }
 }
