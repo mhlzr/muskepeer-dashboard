@@ -7,6 +7,7 @@ require.config({
         'chartjs': 'lib/chartjs/Chart',
         'domready': 'lib/requirejs-domready/domReady',
         'eventemitter2': 'lib/eventemitter2/lib/eventemitter2',
+        'fastclick': 'lib/fastclick/lib/fastclick',
         'modernizr': 'lib/modernizr/modernizr',
         'observe-js': 'lib/observe-js/src/observe',
         'ractive': 'lib/ractive/build/Ractive',
@@ -24,9 +25,11 @@ require.config({
     }
 });
 
-require(['domready', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Modernizr, MuskepeerDashboard) {
+require(['domready', 'fastclick', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Fastclick, Modernizr, MuskepeerDashboard) {
 
     //window.Muskepeer = Muskepeer.init();
+
+    Fastclick.attach(document.body);
 
     window.jquery = $;
 
