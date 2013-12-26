@@ -13,7 +13,6 @@ define(['qr-js'], function (qr) {
                 value: viewModel.url
             });
 
-            console.log(viewModel.url);
         }
     };
 });

@@ -82,11 +82,11 @@ module.exports = function (grunt) {
             fontello: {
                 dist: {
                     options: {
-                        config  : 'fontello.json',
-                        fonts   : 'src/font',
-                        styles  : 'src/sass/plugins/fontello',
-                        sass    : true,
-                        force   : true
+                        config: 'fontello.json',
+                        fonts: 'src/font',
+                        styles: 'src/sass/plugins/fontello',
+                        sass: true,
+                        force: true
                     }
                 }
             },

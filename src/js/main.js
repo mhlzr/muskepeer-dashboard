@@ -9,7 +9,6 @@ require.config({
         'eventemitter2': 'lib/eventemitter2/lib/eventemitter2',
         'fastclick': 'lib/fastclick/lib/fastclick',
         'modernizr': 'lib/modernizr/modernizr',
-        'observe-js': 'lib/observe-js/src/observe',
         'ractive': 'lib/ractive/build/Ractive',
         'q': 'lib/q/q',
         'qr-js': 'lib/qr-js/qr',
@@ -25,7 +24,7 @@ require.config({
     }
 });
 
-require(['domready', 'fastclick', 'modernizr', 'muskepeer-dashboard'], function (DomReady, Fastclick, Modernizr, MuskepeerDashboard) {
+require(['domready', 'fastclick', 'modernizr', 'muskepeer-client', 'muskepeer-dashboard'], function (DomReady, Fastclick, Modernizr, MuskepeerClient, MuskepeerDashboard) {
 
     //window.Muskepeer = Muskepeer.init();
 
@@ -33,22 +32,73 @@ require(['domready', 'fastclick', 'modernizr', 'muskepeer-dashboard'], function 
 
     window.jquery = $;
 
-    window.Muskepeer = {
-        project: {
-            uuid: '234rw3tgbvmzrtrzef567890'
-        },
-        network: {
-            peers: {
-                list: [
-                    {uuid: 1, long: Math.random() * 100, lat: Math.random() * 100},
-                    {uuid: 2, long: Math.random() * 100, lat: Math.random() * 100},
-                    {uuid: 3, long: Math.random() * 100, lat: Math.random() * 100}
-                ]
-            }
-        }
-    };
+    window.Muskepeer = MuskepeerClient.init();
 
     window.Dashboard = MuskepeerDashboard.init(Muskepeer);
+
+    Muskepeer.start({
+        project: {
+
+            uuid: '2345678902765456789',
+            title: 'TestProject',
+            description: 'Here be dragons!',
+            active: true,
+
+            owner: {
+                email: 'matthieholzer@gmx.de',
+                name: 'Matthieu Holzer',
+                url: 'http://www.matthieuholzer.de',
+                publicKey: ''
+            },
+
+            computation: {
+                offlineAllowed: true,
+                hasDependingTasks: false,
+                hasFiniteTasks: true,
+                hasDataFiles: false,
+                validationIterations: -1, //-1 : Inifinite, 0 : None; >0 : Amount,
+                worker: {
+                    url: null,
+                    algorithm: ''
+                },
+                jobs: {},
+                results: {
+                    bundleSize: 100,
+                    storages: [
+                        {
+                            enabled: true,
+                            type: 'rest',
+                            url: 'http://www.parse.com',
+                            method: 'post',
+                            params: {}
+                        }
+                    ]
+                }
+            },
+
+            network: {
+                useGeoLocation: true
+            }
+        },
+        nodes: [
+            {
+                host: 'node01-muskepeer.rhcloud.com',
+                isSecure: true,
+                port: 8443
+            },
+            {
+                host: 'node02-muskepeer.rhcloud.com',
+                isSecure: true,
+                port: 8443
+            }/*,
+             {
+             host: '192.168.178.26',
+             isSecure: false,
+             port: 8080
+             }*/
+
+        ]
+    });
 
 });
 

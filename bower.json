@@ -8,7 +8,6 @@
     "zepto": null,
     "requirejs-plugins": "~1.0.2",
     "chartjs": "*",
-    "observe-js": "~0.1.0",
     "qr-js": "~1.1.1",
     "eventemitter2": "~0.4.13",
     "ractive": "~0.3.7",
