@@ -1,5 +1,5 @@
-musketeer-dashboard
+muskepeer-dashboard
 ================
 
-The GUI to participate in a musketeer-project, als well as create and manage one.
+A dashboard for muskepeer-clients, currently more a draft as there is no real Model-View-Binding.
 
